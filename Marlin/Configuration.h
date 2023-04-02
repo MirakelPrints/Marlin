@@ -675,13 +675,13 @@
   #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify up to one value per hotend here, according to your setup.
     // If there are fewer values, the last one applies to the remaining hotends.
-    #define DEFAULT_Kp_LIST {  9.95,  9.95 }
-    #define DEFAULT_Ki_LIST {  1.04,  1.04 }
-    #define DEFAULT_Kd_LIST { 23.88, 23.88 }
+    #define DEFAULT_Kp_LIST { 13.1079, 13.1079 }
+    #define DEFAULT_Ki_LIST {  0.9257,  0.9257 }
+    #define DEFAULT_Kd_LIST { 46.4019, 46.4019 }
   #else
-    #define DEFAULT_Kp  9.95
-    #define DEFAULT_Ki  1.04
-    #define DEFAULT_Kd 23.88
+    #define DEFAULT_Kp 13.1079
+    #define DEFAULT_Ki  0.9257
+    #define DEFAULT_Kd 46.4019
   #endif
 #endif
 
@@ -764,9 +764,9 @@
   //#define PID_BED_DEBUG // Print Bed PID debug data to the serial port.
 
   // Genius Pro
-  #define DEFAULT_bedKp 22.14
-  #define DEFAULT_bedKi 1.31
-  #define DEFAULT_bedKd 249.15
+  #define DEFAULT_bedKp  47.0143
+  #define DEFAULT_bedKi   6.3191
+  #define DEFAULT_bedKd 233.1900
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -1237,7 +1237,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.121, 80.121, 402, 445 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80.121, 80.121, 402, 449.5 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -2324,7 +2324,7 @@
 #define EEPROM_BOOT_SILENT    // Keep M503 quiet and only give errors during first load
 #if ENABLED(EEPROM_SETTINGS)
   //#define EEPROM_AUTO_INIT    // Init EEPROM automatically on any errors.
-  #define EEPROM_INIT_NOW     // Init EEPROM on first boot after a new build.
+  //#define EEPROM_INIT_NOW     // Init EEPROM on first boot after a new build.
 #endif
 
 // @section host
@@ -2357,16 +2357,22 @@
 // Preheat Constants - Up to 10 are supported without changes
 //
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 180
-#define PREHEAT_1_TEMP_BED     70
+#define PREHEAT_1_TEMP_HOTEND 200
+#define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_TEMP_CHAMBER 35
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-#define PREHEAT_2_LABEL       "ABS"
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    110
+#define PREHEAT_2_LABEL       "PETG"
+#define PREHEAT_2_TEMP_HOTEND 225
+#define PREHEAT_2_TEMP_BED     80
 #define PREHEAT_2_TEMP_CHAMBER 35
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_3_LABEL       "ABS"
+#define PREHEAT_3_TEMP_HOTEND 240
+#define PREHEAT_3_TEMP_BED    110
+#define PREHEAT_3_TEMP_CHAMBER 35
+#define PREHEAT_3_FAN_SPEED     0 // Value from 0 to 255
 
 // @section motion
 
