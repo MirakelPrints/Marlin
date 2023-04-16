@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
     - bugfix-*.*.*.gpro-*
+    - bugfix-*.*.*.swx2-*
     paths-ignore:
     - config/**
     - data/**
@@ -11,9 +12,11 @@ on:
     - '**/*.md'
     tags:
       - 'bugfix-*.*.*.gpro-*'
+      - 'bugfix-*.*.*.swx2-*'
   push:
     branches:
     - bugfix-*.*.*.gpro-*
+    - bugfix-*.*.*.swx2-*
     paths-ignore:
     - config/**
     - data/**
@@ -21,6 +24,7 @@ on:
     - '**/*.md'
     tags:
       - 'bugfix-*.*.*.gpro-*'
+      - 'bugfix-*.*.*.swx2-*'
 
 env:
   platform-env: Artillery_Ruby
