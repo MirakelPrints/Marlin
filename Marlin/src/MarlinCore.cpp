@@ -782,7 +782,7 @@ inline void manage_inactivity(const bool no_stepper_sleep=false) {
  *  - Update the Průša MMU2
  *  - Handle Joystick jogging
  */
-void idle(bool no_stepper_sleep/*=false*/) {
+void idle(const bool no_stepper_sleep/*=false*/) {
   #ifdef MAX7219_DEBUG_PROFILE
     CodeProfiler idle_profiler;
   #endif
@@ -1659,6 +1659,12 @@ void setup() {
   #endif
 
   marlin_state = MF_RUNNING;
+
+  #ifdef STARTUP_TUNE
+    // Play a short startup tune before continuing.
+    constexpr uint16_t tune[] = STARTUP_TUNE;
+    for (uint8_t i = 0; i < COUNT(tune) - 1; i += 2) BUZZ(tune[i + 1], tune[i]);
+  #endif
 
   SETUP_LOG("setup() completed.");
 
